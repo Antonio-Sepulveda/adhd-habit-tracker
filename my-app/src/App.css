@@ -1,0 +1,544 @@
+body {
+  background-color: var(--bg-color, rgb(218, 190, 247));
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: 100vh;
+}
+
+.display {
+  width: 10em;
+  height: 10em;
+  border: 1px solid black;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.display2 {
+  padding-top: 1em;
+  padding-right: 1em;
+  padding-left: 1em;
+  border: 1px solid black;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.3em;
+  align-items: center;
+  font-weight: bold;
+  background-color: white;
+}
+
+.sleep-wake-btn {
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+  /* width: 20vw;
+  height: 20vh; */
+  /* border: 1px solid black; */
+}
+
+.clock-setting {
+  flex-wrap: nowrap;
+}
+
+.divider {
+  margin-top: 1em;
+  margin: 1em;
+  border: 1px solid grey;
+  opacity: 0.3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.manual-timers {
+  text-align: center;
+  display: flex;
+}
+
+.manual-timer {
+  /* flex: 1 1 50%;
+  box-sizing: border-box; */
+}
+
+.calendar {
+  border: 1px solid #4b4453;
+  border-radius: 0.3em;
+  font-size: 1em;
+  padding: 0.5em;
+  text-align: center;
+}
+
+.sleep-menu-clock {
+  font-size: 2em;
+  border: 2px solid white;;
+  color: white;
+  padding: 0.1em;
+  font-weight: bold;
+  border-radius: 0.3em;
+  box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.5);
+  margin-bottom: 0;
+}
+
+.headings {
+  font-size: 1.5em;
+  color: #4b4453;
+  font-weight: bold;
+}
+
+.select-time {
+  font-size: 1.5em;
+  border-radius: 0.3em;
+  border: 2px solid transparent;
+  margin-right: 0.1em;
+  margin-left: 0.1em;
+  color: #4b4453;
+}
+
+.record-sleep {
+  margin-top: 1em;
+  background-color: white;
+  color: #4b4453;
+  border: 2px solid #4b4453;
+  border-radius: 0.3em;
+  font-size: 1em;
+  padding: 0.5em;
+  font-weight: bold;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.summary-btn {
+  display: flex;
+  text-align: center;
+  background-color: white;
+  margin-top: 0.2em;
+  padding: 0;
+  color: #4b4453;
+  border: 2px solid #4b4453;
+  border-radius: 0.2em;
+  font-size: 3em;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+.summary-btn:hover, .record-sleep:hover {
+  background-color: rgba(0,0,0,0.4);
+}
+.summary-btn:active, .record-sleep:active {
+  background-color: rgba(0,0,0,0.4);
+  box-shadow: none;
+}
+
+.summary-warning {
+  margin: 1em;
+  color: rgb(174, 0, 0);
+}
+
+.week-border {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 0.5em;
+  margin: 1em;
+}
+
+.week-divider {
+  background-color: red;
+}
+
+.day-wheel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+
+.hollow-effect {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 75%;
+  height: 75%;
+  background-color: rgb(218, 190, 247);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.organize {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+
+.hover-time {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 10px;
+  pointer-events: none;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  
+  opacity: 0;
+  animation: fadeIn 1.5s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.pizza-background {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.pizza-background img {
+  position: absolute;
+  width: 20.5em;
+  object-fit: contain;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.bar-chart-container {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.bar-item {
+  height: 25em; 
+  display: flex; 
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.bar {
+  z-index: 5;
+  background-color: rgb(180, 118, 246);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  margin: 20px;
+  width: 1em;
+  transition: height 0.3s ease;
+}
+
+.bar-label {
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.week-select-heading {
+  font-weight: bold;
+}
+
+.bar-chart-border {
+  display: flex;
+  height: 22.5em;
+  flex-direction: column;
+  justify-content: space-evenly;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.tick-line {
+  position: absolute;
+  width: 27em;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.back {
+  background-color: transparent;
+  border: 1px solid #4b4453;
+  color: #4b4453;
+  border-radius: 0.3em;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  padding: 0;
+}
+
+.back-next {
+  background-color: transparent;
+  border: none;
+  font-weight: bold;
+  font-size: 1.5em;
+  padding: 0;
+  margin: 0;
+}
+
+.sleep-btnL {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border: 1px solid #4b4453;
+  color: #4b4453;
+  border-radius: 0.3em;
+  font-size: 1em;
+  font-weight: bold;
+}
+.sleep-btnR {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border: 1px solid #4b4453;
+  color: #4b4453;
+  border-radius: 0.3em;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.eat-drink-btn {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border: 1px solid #4b4453;
+  color: #4b4453;
+  border-radius: 0.3em;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.focus-btn {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border: 1px solid #4b4453;
+  color: #4b4453;
+  border-radius: 0.3em;
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.eat-drink-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.focus-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.water-cup {
+  border: 1px solid black;
+  border-radius: 0.3em;
+  width: 8em;
+  height: 12em;
+  transform: rotate(180deg);
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.1);
+  background-color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.water-cup-fill {
+  height: var(--cup-fill, 0%);
+  background-color: lightblue;
+  transition: height 0.5s ease;
+}
+
+.eat-drink-btns-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ate-drank-btn {
+  background-color: white;
+  color: #287a33;
+  border: 2px solid #287a33;
+  border-radius: 0.3em;
+  font-size: 1em;
+  padding: 0.5em;
+  font-weight: bold;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  justify-content: center;
+  margin-left: 0.3em;
+  margin-right: 0.3em;
+}
+
+.add-sub-circle {
+  background-color: transparent;
+  border: none;
+  font-size: 2em;
+  margin-top: 0.2em;
+  color: #287a33;
+}
+
+.ate-drank-btn:hover {
+  background-color: rgba(255,255,255,0.3);
+}
+.ate-drank-btn:active {
+  background-color: rgba(255,255,255,0.3);
+  box-shadow: none;
+}
+
+.break-btns {
+  background-color: white;
+  color: #b41a1a;
+  border: 2px solid #b41a1a;
+  border-radius: 0.3em;
+  font-size: 1em;
+  padding: 0.5em;
+  font-weight: bold;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  justify-content: center;
+  margin-left: 0.3em;
+  margin-right: 0.3em;
+}
+
+.interval-reset {
+  margin: 0;
+  background-color: white;
+  color: #b41a1a;
+  border: 2px solid #b41a1a;
+  border-radius: 0.3em;
+  font-size: 1em;
+  font-weight: bold;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.break-btns:hover, .interval-reset:hover {
+  background-color: rgba(255,255,255,0.3);
+}
+.break-btns:active, .interval-reset:active {
+  background-color: rgba(255,255,255,0.3);
+  box-shadow: none;
+}
+
+h1 {
+  color: white;
+}
+
+dialog {
+  position: absolute;
+  border-radius: 1em;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: none;
+  margin-top: -0.5em;
+}
+
+.dialog-background {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dialog-exit {
+  position: absolute;
+  right: 1em;
+  top: 1em;
+  border-radius: 0.3em;
+  border: none;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+.focus-text {
+  font-weight: bold;
+  color: white;
+}
+
+.focus-restart-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 2em;
+  color: white;
+}
+
+.focus-settings-btn {
+  font-size: 1.5em;
+  background-color: transparent;
+  color: white;
+  border: none;
+  padding: 0.5em;
+  font-weight: bold;
+  border-color: white;
+  margin-top: -0.5em;
+}
+
+.focus-settings-btn2 {
+  font-size: 1.5em;
+  background-color: transparent;
+  color: #b41a1a;
+  border: none;
+  padding: 0.5em;
+  font-weight: bold;
+  border-color: white;
+  margin-top: -0.5em;
+  transition: rotate(12deg) 0.5s ease;
+}
+
+.focus-setting-input {
+  border: none;
+  border-radius: 0.3em;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
